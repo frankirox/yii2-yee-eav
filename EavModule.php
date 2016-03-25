@@ -1,7 +1,7 @@
 <?php
 /**
  * @link http://www.yee-soft.com/
- * @copyright Copyright (c) 2015 Taras Makitra
+ * @copyright Copyright (c) 2016 Taras Makitra
  * @license http://www.apache.org/licenses/LICENSE-2.0
  */
 
