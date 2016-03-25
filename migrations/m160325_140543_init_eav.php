@@ -90,7 +90,7 @@ class m160325_140543_init_eav extends Migration
         $this->createIndex('eav_entity_attribute_entity_id', 'eav_entity_attribute', ['entity_id']);
         $this->createIndex('eav_entity_attribute_attribute_id', 'eav_entity_attribute', ['attribute_id']);
 
-        $this->addForeignKey('eav_entity_attribute_entity', 'eav_entity_attribute', 'entity_id', 'eav_attribute', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey('eav_entity_attribute_entity', 'eav_entity_attribute', 'entity_id', 'eav_entity', 'id', 'CASCADE', 'CASCADE');
         $this->addForeignKey('eav_entity_attribute_attribute', 'eav_entity_attribute', 'attribute_id', 'eav_attribute', 'id', 'CASCADE', 'CASCADE');
 
 
