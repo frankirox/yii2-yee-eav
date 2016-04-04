@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php
                     /* Uncomment this to activate GridQuickLinks */
                     /* echo GridQuickLinks::widget([
-                        'model' => EavEntityModel::class,
+                        'model' => EavEntityModel::className(),
                         'searchModel' => $searchModel,
                     ])*/
                     ?>
