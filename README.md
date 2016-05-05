@@ -39,7 +39,7 @@ Configuration
 ```php
 'modules'=>[
     'eav' => [
-        'class' => 'yeesoft\menu\EavModule',
+        'class' => 'yeesoft\eav\EavModule',
     ],
 ],
 ```

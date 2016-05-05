@@ -231,7 +231,7 @@ class EavBehavior extends Behavior
         }
     }
 
-    public function afterSave()
+    public function afterSave($insert, $changedAttributes)
     {
         foreach ($this->eavAttributes as $name => $attribute) {
             $attribute->save();

@@ -204,7 +204,7 @@ class EavAttribute extends \yii\db\ActiveRecord
         $this->_value->value = $value;
     }
 
-    public function afterSave()
+    public function afterSave($insert, $changedAttributes)
     {
         if (isset($this->_value) && $this->_value) {
             $this->_value->save();
