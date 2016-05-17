@@ -46,6 +46,7 @@ class EavAttribute extends ActiveRecord
     public function rules()
     {
         return [
+            [['type_id'], 'integer'],
             [['name', 'default_value', 'label', 'description', 'icon'], 'string', 'max' => 255],
             [['required'], 'boolean'],
         ];
