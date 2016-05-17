@@ -8,7 +8,7 @@ use yeesoft\eav\models\EavEntity;
 use yeesoft\eav\models\EavEntityModel;
 use yii\base\Behavior;
 use yii\base\UnknownPropertyException;
-use yii\db\ActiveRecord;
+use yeesoft\db\ActiveRecord;
 
 /**
  * Class EavBehavior
@@ -80,7 +80,7 @@ class EavBehavior extends Behavior
             $modelTable = EavEntityModel::tableName();
             $entityTable = EavEntity::tableName();
             $attributeTable = EavAttribute::tableName();
-            $entityToAttributeTable = 'eav_entity_attribute';
+            $entityToAttributeTable = '{{%eav_entity_attribute}}';
 
             $attributes = EavAttribute::find()
                 ->innerJoin($entityToAttributeTable, "$attributeTable.id = $entityToAttributeTable.attribute_id")
