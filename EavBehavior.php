@@ -31,7 +31,7 @@ class EavBehavior extends Behavior
             ActiveRecord::EVENT_AFTER_FIND => 'afterFind',
             ActiveRecord::EVENT_INIT => 'eavInit',
             ActiveRecord::EVENT_AFTER_INSERT => 'afterInsert',
-            ActiveRecord::EVENT_AFTER_UPDATE => 'afterSave',
+            ActiveRecord::EVENT_AFTER_UPDATE => 'afterUpdate',
         ];
     }
 
@@ -231,10 +231,10 @@ class EavBehavior extends Behavior
         }
     }
 
-    public function afterSave($insert, $changedAttributes)
+    public function afterUpdate()
     {
         foreach ($this->eavAttributes as $name => $attribute) {
-            $attribute->save();
+            $attribute->save();  
         }
     }
 

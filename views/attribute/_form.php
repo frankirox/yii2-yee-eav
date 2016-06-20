@@ -56,7 +56,7 @@ use yeesoft\widgets\ActiveForm;
                         <?= $form->field($model, 'type_id')->dropDownList(yeesoft\eav\models\EavAttributeType::getAttributeTypes()) ?>
 
                         <?= $form->field($model, 'icon')->dropDownList(FA::getIconsList(), [
-                            'class' => 'clearfix non-styler form-control fa-font-family',
+                            'class' => 'clearfix form-control fa-font-family',
                             'encode' => false,
                         ]) ?>
 
