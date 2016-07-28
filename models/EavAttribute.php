@@ -110,13 +110,13 @@ class EavAttribute extends ActiveRecord
         return $this->hasMany(EavAttributeOption::className(), ['attribute_id' => 'id']);
     }
 
-    public function getEavOptionsList()
+    public function getEavOptionsList($translateCategory = null)
     {
         $result = [];
         $options = $this->eavOptions;
 
         foreach ($options as $option) {
-            $result[$option->id] = $option->value;
+            $result[$option->id] = ($translateCategory === null) ? $option->value : Yii::t($translateCategory, $option->value);
         }
 
         return $result;
