@@ -12,15 +12,24 @@ use yii\data\ActiveDataProvider;
  */
 class EavAttributeTypeSearch extends EavAttributeType
 {
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'store_type'], 'integer'],
-            [['name'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'store_type'], 'safe'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -72,4 +81,5 @@ class EavAttributeTypeSearch extends EavAttributeType
 
         return $dataProvider;
     }
+
 }

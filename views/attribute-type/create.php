@@ -1,7 +1,5 @@
 <?php
 
-use yii\helpers\Html;
-
 /* @var $this yii\web\View */
 /* @var $model yeesoft\eav\models\EavAttributeType */
 
@@ -11,7 +9,4 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/eav', 'Attribute Types'
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="eav-attribute-type-create">
-    <h3 class="lte-hide-title"><?= Html::encode($this->title) ?></h3>
-    <?= $this->render('_form', compact('model')) ?>
-</div>
+<?= $this->render('_form', compact('model')) ?>

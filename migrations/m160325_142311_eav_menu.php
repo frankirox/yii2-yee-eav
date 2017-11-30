@@ -1,6 +1,6 @@
 <?php
 
-class m160325_142311_add_eav_menu_links extends yii\db\Migration
+class m160325_142311_eav_menu extends yii\db\Migration
 {
 
     public function safeUp()

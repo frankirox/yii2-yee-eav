@@ -12,6 +12,7 @@ use yii\data\ActiveDataProvider;
  */
 class EavAttributeSearch extends EavAttribute
 {
+
     /**
      * @inheritdoc
      */
@@ -21,6 +22,14 @@ class EavAttributeSearch extends EavAttribute
             [['id', 'type_id', 'required'], 'integer'],
             [['name', 'label', 'default_value', 'description', 'icon'], 'safe'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -70,11 +79,12 @@ class EavAttributeSearch extends EavAttribute
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'label', $this->label])
-            ->andFilterWhere(['like', 'icon', $this->label])
-            ->andFilterWhere(['like', 'default_value', $this->default_value])
-            ->andFilterWhere(['like', 'description', $this->description]);
+                ->andFilterWhere(['like', 'label', $this->label])
+                ->andFilterWhere(['like', 'icon', $this->label])
+                ->andFilterWhere(['like', 'default_value', $this->default_value])
+                ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }
+
 }

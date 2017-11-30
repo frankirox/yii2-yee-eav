@@ -2,12 +2,12 @@
 
 namespace yeesoft\eav\controllers;
 
-use yeesoft\controllers\admin\BaseController;
+use yeesoft\controllers\CrudController;
 
 /**
  * AttributeTypeController implements the CRUD actions for yeesoft\eav\models\EavAttributeType model.
  */
-class AttributeTypeController extends BaseController
+class AttributeTypeController extends CrudController
 {
     public $modelClass = 'yeesoft\eav\models\EavAttributeType';
     public $modelSearchClass = 'yeesoft\eav\models\search\EavAttributeTypeSearch';

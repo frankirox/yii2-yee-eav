@@ -2,7 +2,7 @@
 
 namespace yeesoft\eav\controllers;
 
-use yeesoft\controllers\admin\BaseController;
+use yeesoft\controllers\CrudController;
 use yeesoft\eav\models\EavAttribute;
 use yeesoft\eav\models\EavCategories;
 use yeesoft\eav\models\EavEntity;
@@ -17,7 +17,7 @@ use yii\web\Response;
 /**
  * EavEntityController implements the CRUD actions for yeesoft\eav\models\EavEntity model.
  */
-class DefaultController extends BaseController
+class DefaultController extends CrudController
 {
     public $enableOnlyActions = ['index', 'get-attributes', 'set-attributes', 'get-categories'];
 

@@ -1,7 +1,5 @@
 <?php
 
-use yii\helpers\Html;
-
 /* @var $this yii\web\View */
 /* @var $model yeesoft\eav\models\EavEntityModel */
 
@@ -11,7 +9,4 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/eav', 'Entity Models'),
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="eav-entity-update">
-    <h3 class="lte-hide-title"><?= Html::encode($this->title) ?></h3>
-    <?= $this->render('_form', compact('model')) ?>
-</div>
+<?= $this->render('_form', compact('model')) ?>

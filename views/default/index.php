@@ -15,22 +15,27 @@ EavAsset::register($this);
 
     <div class="row">
         <div class="col-sm-12">
-            <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
 
-            <?= Alert::widget([
+            <?=
+            Alert::widget([
                 'options' => ['class' => 'alert-primary eav-link-alert'],
                 'body' => '<span class="glyphicon glyphicon-refresh glyphicon-spin"></span>',
-            ]) ?>
+            ])
+            ?>
 
-            <?= Alert::widget([
+            <?=
+            Alert::widget([
                 'options' => ['class' => 'alert-danger eav-link-alert'],
                 'body' => Yii::t('yee/eav', 'An error occurred during saving EAV attributes!'),
-            ]) ?>
+            ])
+            ?>
 
-            <?= Alert::widget([
+            <?=
+            Alert::widget([
                 'options' => ['class' => 'alert-info eav-link-alert'],
                 'body' => Yii::t('yee', 'The changes have been saved.'),
-            ]) ?>
+            ])
+            ?>
         </div>
     </div>
 

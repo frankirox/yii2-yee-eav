@@ -2,12 +2,12 @@
 
 namespace yeesoft\eav\controllers;
 
-use yeesoft\controllers\admin\BaseController;
+use yeesoft\controllers\CrudController;
 
 /**
  * EavEntityModelController implements the CRUD actions for yeesoft\eav\models\EavEntityModel model.
  */
-class EntityModelController extends BaseController
+class EntityModelController extends CrudController
 {
     public $modelClass = 'yeesoft\eav\models\EavEntityModel';
     public $modelSearchClass = 'yeesoft\eav\models\search\EavEntityModelSearch';

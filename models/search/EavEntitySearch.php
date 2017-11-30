@@ -12,6 +12,7 @@ use yii\data\ActiveDataProvider;
  */
 class EavEntitySearch extends EavEntity
 {
+
     /**
      * @inheritdoc
      */
@@ -20,6 +21,14 @@ class EavEntitySearch extends EavEntity
         return [
             [['id', 'model_id', 'category_id'], 'integer'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -70,4 +79,5 @@ class EavEntitySearch extends EavEntity
 
         return $dataProvider;
     }
+
 }

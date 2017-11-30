@@ -2,12 +2,12 @@
 
 namespace yeesoft\eav\controllers;
 
-use yeesoft\controllers\admin\BaseController;
+use yeesoft\controllers\CrudController;
 
 /**
  * AttributeOptionController implements the CRUD actions for yeesoft\eav\models\EavAttributeOption model.
  */
-class AttributeOptionController extends BaseController
+class AttributeOptionController extends CrudController
 {
     public $modelClass = 'yeesoft\eav\models\EavAttributeOption';
     public $modelSearchClass = 'yeesoft\eav\models\search\EavAttributeOptionSearch';

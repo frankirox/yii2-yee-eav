@@ -2,11 +2,9 @@
 
 use yeesoft\eav\models\EavAttribute;
 use yeesoft\eav\models\EavAttributeType;
-use yeesoft\grid\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -16,86 +14,53 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('yee/eav', 'Attributes');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/eav', 'EAV'), 'url' => ['/eav/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
+$this->params['description'] = 'YeeCMS 0.2.0';
+$this->params['header-content'] = Html::a(Yii::t('yee', 'Add New'), ['create'], ['class' => 'btn btn-sm btn-primary']);
 ?>
-<div class="eav-attribute-index">
-
-    <div class="row">
-        <div class="col-sm-12">
-            <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
-            <?= Html::a(Yii::t('yee', 'Add New'), ['/eav/attribute/create'], ['class' => 'btn btn-sm btn-primary']) ?>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <?php
-                    /* Uncomment this to activate GridQuickLinks */
-                    /* echo GridQuickLinks::widget([
-                        'model' => EavAttribute::className(),
-                        'searchModel' => $searchModel,
-                    ])*/
-                    ?>
-                </div>
-
-                <div class="col-sm-6 text-right">
-                    <?= GridPageSize::widget(['pjaxId' => 'eav-attribute-grid-pjax']) ?>
-                </div>
-            </div>
-
-            <?php
-            Pjax::begin([
-                'id' => 'eav-attribute-grid-pjax',
-            ])
-            ?>
-
-            <?=
-            GridView::widget([
-                'id' => 'eav-attribute-grid',
-                'dataProvider' => $dataProvider,
-                'filterModel' => $searchModel,
-                'bulkActionOptions' => [
-                    'gridId' => 'eav-attribute-grid',
-                    'actions' => [Url::to(['bulk-delete']) => Yii::t('yee', 'Delete')] //Configure here you bulk actions
+<div class="box box-primary">
+    <div class="box-body">
+        <?php $pjax = Pjax::begin() ?>
+        <?=
+        GridView::widget([
+            'pjaxId' => $pjax->id,
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'quickFilters' => false,
+            'columns' => [
+                ['class' => 'yeesoft\grid\CheckboxColumn', 'options' => ['style' => 'width:10px'], 'displayFilter' => false],
+                [
+                    'attribute' => 'id',
+                    'options' => ['style' => 'width:40px'],
+                    'filterOptions' => ['colspan' => 2],
                 ],
-                'columns' => [
-                    ['class' => 'yeesoft\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
-                    ['attribute' => 'id', 'options' => ['style' => 'width:20px']],
-                    [
-                        'class' => 'yeesoft\grid\columns\TitleActionColumn',
-                        'attribute' => 'label',
-                        'controller' => '/eav/attribute',
-                        'buttonsTemplate' => '{update} {delete}',
-                        'title' => function (EavAttribute $model) {
-                            return Html::a($model->label, ['update', 'id' => $model->id], ['data-pjax' => 0]);
-                        },
-                    ],
-                    'name',
-                    [
-                        'attribute' => 'type_id',
-                        'value' => function (EavAttribute $model) {
-                            return $model->eavType->name;
-                        },
-                        'filter' => ArrayHelper::merge(['' => Yii::t('yee', 'Not Selected')], EavAttributeType::getAttributeTypes()),
-                        'options' => []
-                    ],
-                    //'default_value',
-                    'description',
-                    [
-                        'class' => 'yeesoft\grid\columns\StatusColumn',
-                        'attribute' => 'required',
-                        'options' => ['style' => 'width:60px']
-                    ],
-
+                [
+                    'class' => 'yeesoft\grid\columns\TitleActionColumn',
+                    'attribute' => 'label',
+                    'buttonsTemplate' => '{update} {delete}',
+                    'title' => function (EavAttribute $model) {
+                        return Html::a($model->label, ['update', 'id' => $model->id], ['data-pjax' => 0]);
+                    },
                 ],
-            ]);
-            ?>
+                'name',
+                [
+                    'attribute' => 'type_id',
+                    'value' => function (EavAttribute $model) {
+                        return $model->eavType->name;
+                    },
+                    'filter' => ArrayHelper::merge(['' => Yii::t('yee', 'Not Selected')], EavAttributeType::getAttributeTypes()),
+                    'options' => []
+                ],
+                //'default_value',
+                'description',
+                [
+                    'class' => 'yeesoft\grid\columns\StatusColumn',
+                    'attribute' => 'required',
+                    'options' => ['style' => 'width:60px']
+                ],
+            ],
+        ]);
+        ?>
 
-            <?php Pjax::end() ?>
-        </div>
+        <?php Pjax::end() ?>
     </div>
 </div>
-
-

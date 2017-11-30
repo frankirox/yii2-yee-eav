@@ -8,67 +8,55 @@ use yeesoft\widgets\ActiveForm;
 /* @var $form yeesoft\widgets\ActiveForm */
 ?>
 
-<div class="eav-entity-form">
+<?php $form = ActiveForm::begin(['validateOnBlur' => false]) ?>
 
-    <?php
-    $form = ActiveForm::begin([
-        'id' => 'eav-entity-form',
-        'validateOnBlur' => false,
-    ])
-    ?>
 
-    <div class="row">
-        <div class="col-md-9">
+<div class="row">
+    <div class="col-md-9">
+        <div class="box box-primary">
+            <div class="box-body">
+                <?= $form->field($model, 'entity_name')->textInput(['maxlength' => true]) ?>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
-
-                    <?= $form->field($model, 'entity_name')->textInput(['maxlength' => true]) ?>
-
-                    <?= $form->field($model, 'entity_model')->textInput(['maxlength' => true]) ?>
-
-                </div>
-
+                <?= $form->field($model, 'entity_model')->textInput(['maxlength' => true]) ?>
             </div>
-        </div>
-
-        <div class="col-md-3">
-
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="record-info">
-                        <?php if (!$model->isNewRecord): ?>
-                            <div class="form-group clearfix">
-                                <label class="control-label"
-                                       style="float: left; padding-right: 5px;"><?= $model->attributeLabels()['id'] ?>
-                                    : </label>
-                                <span><?= $model->id ?></span>
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="form-group">
-                            <?php if ($model->isNewRecord): ?>
-                                <?= Html::submitButton(Yii::t('yee', 'Create'), ['class' => 'btn btn-primary']) ?>
-                                <?= Html::a(Yii::t('yee', 'Cancel'), ['/eav/entity-model/index'], ['class' => 'btn btn-default']) ?>
-                            <?php else: ?>
-                                <?= Html::submitButton(Yii::t('yee', 'Save'), ['class' => 'btn btn-primary']) ?>
-                                <?= Html::a(Yii::t('yee', 'Delete'),
-                                    ['/eav/entity-model/delete', 'id' => $model->id], [
-                                        'class' => 'btn btn-default',
-                                        'data' => [
-                                            'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
-                                            'method' => 'post',
-                                        ],
-                                    ]) ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <div class="col-md-3">
+        <div class="box box-primary">
+            <div class="box-body">
+                <?php if (!$model->isNewRecord): ?>
+                    <?= $form->field($model, 'id')->value() ?>
+                <?php endif; ?>
 
+                <div class="row">
+                    <?php if ($model->isNewRecord): ?>
+                        <div class="col-md-6">
+                            <?= Html::submitButton(Yii::t('yee', 'Create'), ['class' => 'btn btn-primary btn-block']) ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?= Html::a(Yii::t('yee', 'Cancel'), ['index'], ['class' => 'btn btn-default btn-block']) ?>
+                        </div>
+                    <?php else: ?>
+                        <div class="col-md-6">
+                            <?= Html::submitButton(Yii::t('yee', 'Save'), ['class' => 'btn btn-primary btn-block']) ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?=
+                            Html::a(Yii::t('yee', 'Delete'), ['delete', 'id' => $model->id], [
+                                'class' => 'btn btn-default btn-block',
+                                'data' => [
+                                    'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+                                    'method' => 'post',
+                                ],
+                            ])
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<?php ActiveForm::end(); ?>

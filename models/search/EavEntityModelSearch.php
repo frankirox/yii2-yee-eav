@@ -12,6 +12,7 @@ use yii\data\ActiveDataProvider;
  */
 class EavEntityModelSearch extends EavEntityModel
 {
+
     /**
      * @inheritdoc
      */
@@ -21,6 +22,14 @@ class EavEntityModelSearch extends EavEntityModel
             [['id'], 'integer'],
             [['entity_name', 'entity_model'], 'safe'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -68,8 +77,9 @@ class EavEntityModelSearch extends EavEntityModel
         ]);
 
         $query->andFilterWhere(['like', 'entity_name', $this->entity_name])
-            ->andFilterWhere(['like', 'entity_model', $this->entity_model]);
+                ->andFilterWhere(['like', 'entity_model', $this->entity_model]);
 
         return $dataProvider;
     }
+
 }
