@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EavAttributeTypeSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $dataProvider yeesoft\data\ActiveDataProvider */
 
 $this->title = Yii::t('yee/eav', 'Attribute Types');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/eav', 'EAV'), 'url' => ['/eav/default/index']];

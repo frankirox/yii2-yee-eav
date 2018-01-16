@@ -8,7 +8,7 @@ use yeesoft\eav\models\EavCategories;
 use yeesoft\eav\models\EavEntity;
 use yeesoft\eav\models\EavEntityModel;
 use Yii;
-use yii\data\ActiveDataProvider;
+use yeesoft\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;

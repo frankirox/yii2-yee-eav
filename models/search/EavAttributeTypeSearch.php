@@ -5,7 +5,7 @@ namespace yeesoft\eav\models\search;
 use yeesoft\eav\models\EavAttributeType;
 use Yii;
 use yii\base\Model;
-use yii\data\ActiveDataProvider;
+use yeesoft\data\ActiveDataProvider;
 
 /**
  * EavAttributeTypeSearch represents the model behind the search form about `yeesoft\eav\models\EavAttributeType`.

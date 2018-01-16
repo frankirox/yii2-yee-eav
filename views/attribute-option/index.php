@@ -2,16 +2,14 @@
 
 use yeesoft\eav\models\EavAttribute;
 use yeesoft\eav\models\EavAttributeOption;
-use yeesoft\grid\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EavAttributeOptionSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $dataProvider yeesoft\data\ActiveDataProvider */
 
 $this->title = Yii::t('yee/eav', 'Attribute Options');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/eav', 'EAV'), 'url' => ['/eav/default/index']];
