@@ -14,8 +14,7 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('yee/eav', 'Attributes');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/eav', 'EAV'), 'url' => ['/eav/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['description'] = 'YeeCMS 0.2.0';
-$this->params['header-content'] = Html::a(Yii::t('yee', 'Add New'), ['create'], ['class' => 'btn btn-sm btn-primary']);
+$this->params['actions'] = Html::a(Yii::t('yee', 'Add New'), ['create'], ['class' => 'btn btn-sm btn-primary']);
 ?>
 <div class="box box-primary">
     <div class="box-body">
